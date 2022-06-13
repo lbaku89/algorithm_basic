@@ -4,28 +4,30 @@
 
 function solution(arr){
 
-    let answer=0;
-    let maxSum=Number.MIN_SAFE_INTEGER
-    let length=0;
-    let string=0;
-    let sum ;
+    let sum = 0;
+    let max = Number.MIN_SAFE_INTEGER
+    let answer = 0;
+    let tmp = 0; 
 
-    for(let i=0; i<arr.length; i++){
+    for(let x of arr){
 
+        tmp = x;
         sum = 0;
-        string = String(arr[i]);
-        length = string.length
 
-        for(let y=0; y<length; y++){
-            sum+=Number(string[y])
+        while(tmp){
+            sum += (tmp%10);
+            tmp = Math.floor(tmp/10)
         }
-
-        if(sum>=maxSum){
-            maxSum = sum;
-            answer = arr[i];
+        if(sum>max){
+            max = sum;
+            answer = x;
+        }else if(sum===max){
+            if(x>answer){
+                answer = x;
+            }
         }
-        
     }
+
 
     return answer;
 }

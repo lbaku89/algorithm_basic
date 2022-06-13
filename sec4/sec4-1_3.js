@@ -4,27 +4,27 @@
 
 function solution(arr){
 
-    let answer=0;
-    let maxSum=Number.MIN_SAFE_INTEGER
-    let length=0;
-    let string=0;
-    let sum ;
+    let max = Number.MIN_SAFE_INTEGER;
+    let sum;
+    let answer = 0;
 
-    for(let i=0; i<arr.length; i++){
+    for(let x of arr){
 
         sum = 0;
-        string = String(arr[i]);
-        length = string.length
 
-        for(let y=0; y<length; y++){
-            sum+=Number(string[y])
+        sum = String(x).split("").reduce((acc,value)=>{
+            return acc+Number(value);
+        },0)
+
+        if(sum>max){
+            max =sum
+            answer = x;
+        }else if(sum===max){
+            if(x>answer){
+                answer = x;
+            }
         }
 
-        if(sum>=maxSum){
-            maxSum = sum;
-            answer = arr[i];
-        }
-        
     }
 
     return answer;
