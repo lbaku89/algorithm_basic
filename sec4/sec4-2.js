@@ -4,7 +4,7 @@
 
 function isPrime(number){
 
-    if(number===2|3){
+    if(number===2|number===3){
         return true;
     }else if(number===1){
         return false;
@@ -12,7 +12,7 @@ function isPrime(number){
 
     for(let i=2; i<=Math.floor(Math.sqrt(number)); i++){
         if(number%i===0){
-            return false
+            return false;
         }
     }
     return true;
@@ -20,21 +20,24 @@ function isPrime(number){
 
 function solution(arr){
 
-    let reversedNum =0;
+    let answer = []
+
+
     for(let x of arr){
-        
+
         let tmp = x;
+        let reversedNum =0;
 
         while(tmp){
-
             t = tmp%10;
             reversedNum = reversedNum*10 + t;
-             
-
+            tmp = parseInt(tmp/10);
         }
 
+        if(isPrime(reversedNum)){
+            answer.push(reversedNum);
+        }
     }
-
     return answer;
 }
 let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100]

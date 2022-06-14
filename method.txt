@@ -45,3 +45,6 @@ parseInt(x,base) // 문자열 인자를 파싱하여 특정 진수의 정수 반
 -> base 생략시 10진법
 
 isNaN() // is Not a number
+
+
+.sort 
