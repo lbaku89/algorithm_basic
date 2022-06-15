@@ -8,47 +8,33 @@
 
 
 
-function solution(arr){
+function solution(m,product){
 
-    let input = arr;
-    // console.log(arr);
-    let answer = 0;
-    let max = 0;
-    let arr2 ;
-    let tmpArr ;
+    let answer =0;
+    let n = product.length;
+    product.sort((a,b)=>(a[0]+a[1])-(b[0]+b[1]));
+    
+    console.log(product);
 
-    for(let i=0; i<arr.length; i++){
-        console.log(arr.length)
-        console.log(arr)
-        arr2=[];
-        tmpArr = input
-
-        console.log(tmpArr)
-        tmpArr[i][0] = ( arr[i][0]/2 )
-        // console.log(tmpArr[i][0]);
-        
-        for(let j=0; j<arr.length; j++){
-            let sum = tmpArr[j].reduce((previousValue,cuurentValue)=>{
-                return previousValue+cuurentValue;
-            },0)
-            arr2.push(sum);   
+    for(let i=0; i<n; i++){
+        let money = m - (product[i][0]/2 + product[i][1]);
+        let cnt = 1;
+        for(let j=0; j<n; j++){
+            if(j!==i && (product[j][0]+product[j][1]>money) ){
+                break;
+            }
+            if(j!==i && (product[j][0]+product[j][1]<=money)){
+                cnt++;
+                money = money - (product[j][0]+product[j][1]);
+            }
         }
-        console.log(arr2)
-
+        answer = Math.max(answer,cnt)
     }
 
     return answer;
 }
 
 //  5 28
-let arr = [
-    [6, 6],
-    [2, 2],
-    [4, 3],
-    [4, 5],
-    [10, 3]
-]
 
-
-console.log(solution(arr));
-     
+let arr=[[6, 6], [2, 2], [4, 3], [4, 5], [10, 3]];
+console.log(solution(28, arr));

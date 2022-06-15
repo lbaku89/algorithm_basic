@@ -1,14 +1,38 @@
-let arr = [
-    [1,2],
-    [3,4],
-    [5,6]
-]
 
-let arr2 = arr;
+var newSet = new Set();
 
-arr2[0]=arr[0].reduce((a,b)=>{return a+b},0)
+newSet.add(3);
 
-let a = arr[0].reduce((a,b)=>{
-    return a+b
-},0)
-console.log(arr2[0])
+console.log(newSet);
+
+
+
+// closure
+
+// function outerFunc(){
+//     var x = 10;
+//     var innerFunc = function(){
+//         console.log(x)
+//     }
+//     innerFunc();
+// }
+
+// outerFunc();
+
+// execution context ( 실행 컨텍스트 )
+
+// 1
+
+// var x = 'xxx';
+
+// function foo(){
+//     var y = 'yyy';
+
+//     function bar(){
+//         var z = 'zzz'
+//         console.log(x+y+z);
+//     }
+//     bar();
+// }
+// foo();
+
