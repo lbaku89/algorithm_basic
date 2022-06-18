@@ -50,3 +50,5 @@ isNaN() // is Not a number
 .sort() 
 
 .set()
+
+Number.prototype.toFixed() // () 파라미터 자리에 1,2,3 일경우 소수점 1,2,3 까지 반환 ( 끝자리 반올림 )

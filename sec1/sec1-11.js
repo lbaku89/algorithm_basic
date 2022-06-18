@@ -11,9 +11,8 @@ function solution(string){
         if(x===x.toUpperCase()) answer+=1;
     }    
 
-    
     return answer
-    
+
 }
 
 string = 'aaaaaaa'
